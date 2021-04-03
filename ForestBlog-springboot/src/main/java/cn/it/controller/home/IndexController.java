@@ -38,6 +38,10 @@ public class IndexController {
         model.addAttribute("noticeList", noticeList);
 
         System.out.println("git test");
+        System.out.println("git test");
+        System.out.println("git test");
+        System.out.println("git test");
+        System.out.println("git test");
 
         return "Home/index";
     }
