@@ -2,10 +2,12 @@ package cn.it.controller.home;
 
 import cn.it.entity.Article;
 import cn.it.entity.Notice;
+import cn.it.entity.Tag;
 import cn.it.enums.ArticleStatus;
 import cn.it.enums.NoticeStatus;
 import cn.it.service.ArticleService;
 import cn.it.service.NoticeService;
+import cn.it.service.TagService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,8 @@ public class IndexController {
     private ArticleService articleService;
     @Autowired
     private NoticeService noticeService;
+    @Autowired
+    private TagService tagService;
 
     @RequestMapping(value = {"/","/article"})
     public String index(@RequestParam(required = false,defaultValue = "1") Integer pageIndex,
@@ -36,6 +40,11 @@ public class IndexController {
         //公告
         List<Notice> noticeList = noticeService.listNotice(NoticeStatus.NORMAL.getValue());
         model.addAttribute("noticeList", noticeList);
+
+        //侧边栏
+        //标签列表显示
+        List<Tag> allTagList = tagService.listTag();
+        model.addAttribute("allTagList", allTagList);
 
         return "Home/index";
     }

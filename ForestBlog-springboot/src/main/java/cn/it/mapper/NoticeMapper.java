@@ -9,7 +9,6 @@ import java.util.List;
 /**
  * @author liuyanzhao
  */
-@Mapper
 public interface NoticeMapper {
 
     /**

@@ -67,25 +67,23 @@
   <select id="countNotice" resultType="Integer">
     SELECT COUNT(*) FROM <include refid="tb"/>
     <where>
-      <if test="status!=null">
+      <if test="status != null">
         menu_status=#{status}
       </if>
     </where>
   </select>
 
   <!--获取公告列表-->
-  <select id="listNotice" resultType="cn.it.entity.Notice">
+  <select id="listNotice" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List"/>
-    FROM  <include refid="tb"/>
+    FROM  <include refid ="tb"/>
     <where>
-      <if test="status!=null">
+      <if test="status != null">
         notice_status=#{status}
       </if>
     </where>
     ORDER BY notice_status ASC, notice_order DESC, notice_id ASC
   </select>
-
-
 
 </mapper>
