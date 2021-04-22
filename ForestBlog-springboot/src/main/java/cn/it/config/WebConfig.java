@@ -1,18 +1,21 @@
 package cn.it.config;
 
+import cn.it.interceptor.SecurityInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;
 
 @Configuration
-public class WebConfig extends WebMvcConfigurerAdapter {
-    /*@Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/css/**")
-                .addResourceLocations("classpath:/static/css/");
-    }*/
+public class WebConfig implements WebMvcConfigurer  {
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new SecurityInterceptor())
+                .addPathPatterns("/admin")
+                .addPathPatterns("/admin/**");
+    }
 
     @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-        configurer.enable();
+    public void addViewControllers(ViewControllerRegistry registry) {
+        //跳转登录页面
+        registry.addViewController("/login").setViewName("/Admin/login");
     }
 }
