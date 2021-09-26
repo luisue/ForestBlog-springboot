@@ -1,6 +1,10 @@
 package cn.it.controller.admin;
 
+import cn.it.entity.Article;
+import cn.it.entity.Comment;
 import cn.it.entity.User;
+import cn.it.service.ArticleService;
+import cn.it.service.CommentService;
 import cn.it.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import static cn.it.util.MyUtils.getIpAddr;
 
@@ -24,6 +30,10 @@ import static cn.it.util.MyUtils.getIpAddr;
 @Controller
 public class AdminController {
     @Autowired
+    private ArticleService articleService;
+    @Autowired
+    private CommentService commentService;
+    @Autowired
     private UserService userService;
 
     /**
@@ -33,9 +43,12 @@ public class AdminController {
      */
     @RequestMapping("/admin")
     public String index(Model model) {
-        //TODO
         //文章列表
+        List<Article> articleList = articleService.listRecentArticle(5);
+        model.addAttribute("articleList",articleList);
         //评论列表
+        List<Comment> commentList = commentService.listRecentComment(5);
+        model.addAttribute("commentList",commentList);
         return "Admin/index";
     }
 
@@ -94,5 +107,18 @@ public class AdminController {
         }
 
         return result;
+    }
+
+    /**
+     * 退出登录
+     * @param session
+     * @return
+     */
+    @RequestMapping("/admin/logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute("user");
+        session.invalidate();
+
+        return "redirect:/login";
     }
 }
