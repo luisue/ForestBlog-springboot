@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/forest_blog?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+  resources: # 指定静态资源的路径
+    static-locations: classpath:/static/assets/
+  mvc:
+    view: #jsp支持
+      prefix: /WEB-INF/view/
+      suffix: .jsp
+server:
+  port: 8090
+
+#分页pageHelper
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+mybatis:
+  mapper-locations: classpath:/cn/it/mapper/*.xml
