@@ -6,8 +6,11 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+/**
+ * @author luis
+ * @date 2021/9/15 21:02
+ */
 public interface CommentMapper {
-
     /**
      * 根据ID删除
      *

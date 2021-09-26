@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * @author luis
- * @date 2021/4/21 20:04
+ * @date 2021/9/19 16:18
  */
 @Service
 public class UserServiceImpl implements UserService {
@@ -24,12 +24,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(Integer id) {
-        return null;
+        return userMapper.getUserById(id);
     }
 
     @Override
     public void updateUser(User user) {
-
+        userMapper.update(user);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package cn.it.mapper;
 
 import cn.it.entity.Article;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.HashMap;
@@ -10,6 +11,7 @@ import java.util.List;
  * @author luis
  * @date 2021/3/28 21:11
  */
+@Mapper
 public interface ArticleMapper {
 
     /**

@@ -1,17 +1,19 @@
 package cn.it.mapper;
 
 import cn.it.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 /**
  * @author luis
- * @date 2021/4/21 20:09
  */
+@Mapper
 public interface UserMapper {
+
     /**
      * 根据ID删除
-     *
+     * 
      * @param userId 用户ID
      * @return 影响行数
      */
@@ -19,7 +21,7 @@ public interface UserMapper {
 
     /**
      * 添加
-     *
+     * 
      * @param user 用户
      * @return 影响行数
      */
@@ -27,7 +29,7 @@ public interface UserMapper {
 
     /**
      * 根据ID查询
-     *
+     * 
      * @param userId 用户ID
      * @return 用户
      */
@@ -35,7 +37,7 @@ public interface UserMapper {
 
     /**
      * 更新
-     *
+     * 
      * @param user 用户
      * @return 影响行数
      */
@@ -44,7 +46,7 @@ public interface UserMapper {
 
     /**
      * 获得用户列表
-     *
+     * 
      * @return  用户列表
      */
     List<User> listUser() ;
@@ -52,7 +54,7 @@ public interface UserMapper {
 
     /**
      * 根据用户名或Email获得用户
-     *
+     * 
      * @param str 用户名或Email
      * @return 用户
      */
@@ -60,7 +62,7 @@ public interface UserMapper {
 
     /**
      * 根据用户名查用户
-     *
+     * 
      * @param name 用户名
      * @return 用户
      */
@@ -68,9 +70,10 @@ public interface UserMapper {
 
     /**
      * 根据Email查询用户
-     *
+     * 
      * @param email 邮箱
      * @return 用户
      */
     User getUserByEmail(String email) ;
+
 }

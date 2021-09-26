@@ -2,6 +2,7 @@ package cn.it.mapper;
 
 import cn.it.entity.ArticleCategoryRef;
 import cn.it.entity.Category;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
  * @author luis
  * @date 2021/3/30 15:00
  */
+@Mapper
 public interface ArticleCategoryRefMapper {
 
     /**

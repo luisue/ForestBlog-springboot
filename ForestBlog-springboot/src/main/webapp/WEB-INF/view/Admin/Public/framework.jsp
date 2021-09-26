@@ -129,7 +129,7 @@
 
     <div class="layui-footer">
         <!-- 底部固定区域 -->
-        © <a href="http://blog.liuyanzhao.com">博客</a> 底部链接 <a href="https://liuyanzhao.com/bulletin/my-service/" target="_blank">emm</a>
+        © <a href="http://blog.liuyanzhao.com">友情链接</a> balabalabala <a href="https://liuyanzhao.com/bulletin/my-service/" target="_blank">balabala</a>
     </div>
 </div>
 

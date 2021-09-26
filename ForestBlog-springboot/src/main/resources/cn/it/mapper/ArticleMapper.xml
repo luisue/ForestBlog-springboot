@@ -222,7 +222,7 @@
     </select>
 
     <!--获得随机文章-->
-    <select id="listRandomArticle" resultType="cn.it.entity.Article">
+    <select id="listRandomArticle" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>
         FROM
@@ -234,7 +234,7 @@
     </select>
 
     <!--获得评论数较多的文章列表-->
-    <select id="listArticleByCommentCount" resultType="cn.it.entity.Article">
+    <select id="listArticleByCommentCount" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>
         FROM

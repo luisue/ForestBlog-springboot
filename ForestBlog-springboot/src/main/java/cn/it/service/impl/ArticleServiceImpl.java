@@ -120,12 +120,12 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<Article> listRandomArticle(Integer limit) {
-        return null;
+        return articleMapper.listRandomArticle(limit);
     }
 
     @Override
     public List<Article> listArticleByCommentCount(Integer limit) {
-        return null;
+        return articleMapper.listArticleByCommentCount(limit);
     }
 
     @Override

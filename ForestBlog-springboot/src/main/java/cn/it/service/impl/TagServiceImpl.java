@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * @author luis
- * @date 2021/4/7 15:01
+ * @date 2021/9/15 20:34
  */
 @Service
 @Slf4j
@@ -30,8 +30,7 @@ public class TagServiceImpl implements TagService {
         try {
             tagList = tagMapper.listTag();
         } catch (Exception e) {
-            e.printStackTrace();
-            log.error("获得所有标签失败, cause:{}", e);
+            log.error("获取所有标签失败",e);
         }
         return tagList;
     }
